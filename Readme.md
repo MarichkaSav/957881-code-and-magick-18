@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Мария Савчук](https://up.htmlacademy.ru/javascript/18/user/957881).
-* Наставник: `Неизвестно`.
+* Наставник: [Олег Сколяров](https://htmlacademy.ru/profile/id926687).
 
 ---
 
