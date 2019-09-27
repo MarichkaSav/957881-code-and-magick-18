@@ -42,36 +42,18 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', 220, 40);
 
   var roundNumber = function () {
-    return Math.round((times[i] * 100) / 100);
+    return Math.round(times[i]);
   };
 
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = '#000';
     ctx.fillText(names[i], CLOUD_Y + GAP + ((GAP + barWidth) * i), 250);
-    ctx.fillText(roundNumber(times[i]), CLOUD_Y + GAP + ((GAP + barWidth) * i), 80);
+    ctx.fillText(roundNumber(times[i]), CLOUD_Y + GAP + ((GAP + barWidth) * i), CLOUD_HEIGHT - GAP - (BAR_HEIGHT * times[i] / maxTime));
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = getBlueWithRandomSaturation();
     }
-
-    ctx.fillRect(CLOUD_Y + GAP + (GAP + barWidth) * i, CLOUD_Y, barWidth, (BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillRect(CLOUD_Y + GAP + (GAP + barWidth) * i, CLOUD_Y + BAR_HEIGHT, barWidth, -(BAR_HEIGHT * times[i]) / maxTime);
   }
-
-
-  // ctx.fillText('Вы', 150, 250);
-  // ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  // ctx.fillRect(150, 90, 40, 150);
-
-  // ctx.fillText('Кекс', 240, 250);
-  // ctx.fillStyle = getBlueWithRandomSaturation();
-  // ctx.fillRect(240, 90, 40, 150);
-
-  // ctx.fillText('Катя', 330, 250);
-  // ctx.fillStyle = getBlueWithRandomSaturation();
-  // ctx.fillRect(330, 90, 40, 150);
-
-  // ctx.fillText('Игорь', 420, 250);
-  // ctx.fillStyle = getBlueWithRandomSaturation();
-  // ctx.fillRect(420, 90, 40, 150);
 };
