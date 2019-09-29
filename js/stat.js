@@ -7,7 +7,7 @@ var CLOUD_X = 100;
 var GAP = 50;
 var FONT_GAP = 10;
 var BAR_HEIGHT = 150;
-var barWidth = 40;
+var BAR_WIDTH = 40;
 
 var getRandomPercentage = function () {
   return Math.floor(Math.random() * 101);
@@ -43,13 +43,13 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = '#000';
-    ctx.fillText(names[i], CLOUD_X + GAP + ((GAP + barWidth) * i), 250);
-    ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + ((GAP + barWidth) * i), CLOUD_HEIGHT - GAP - (BAR_HEIGHT * times[i] / maxTime));
+    ctx.fillText(names[i], CLOUD_X + GAP + ((GAP + BAR_WIDTH) * i), 250);
+    ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + ((GAP + BAR_WIDTH) * i), CLOUD_HEIGHT - GAP - (BAR_HEIGHT * times[i] / maxTime));
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = getBlueWithRandomSaturation();
     }
-    ctx.fillRect(CLOUD_X + GAP + (GAP + barWidth) * i, CLOUD_X + BAR_HEIGHT - FONT_GAP, barWidth, -(BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_X + BAR_HEIGHT - FONT_GAP, BAR_WIDTH, -(BAR_HEIGHT * times[i]) / maxTime);
   }
 };
